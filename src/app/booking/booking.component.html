@@ -1,0 +1,32 @@
+<div class="container-fluid">
+  <div class="jumbotron">
+    <h1 class="text-center">List Of Bookings</h1>
+  </div>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Date From: </th>
+        <th>Date To:</th>
+        <th>Tenants:</th>
+        <th>Email:</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let booking of bookingsarray; let i = index;">
+        <td>{{ i + 1 }}</td>
+        <td>{{ booking.name }}</td>
+        <td>{{ booking.surname }}</td>
+        <td>{{ booking.bDateFrom }}</td>
+        <td>{{ booking.bDateTo }}</td>
+        <td>{{ booking.tenantsNo }}</td>
+        <td>{{ booking.email }}</td>
+        <td><button class="btn btn-danger" (click)="deleteBooking(i)">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <div *ngIf="">Nothing in here</div>
+</div>

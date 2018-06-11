@@ -1,0 +1,25 @@
+.btn{
+    transition: all ease .5s
+}
+.btn:hover{
+    transform: translateY(-5px);
+}
+
+div{
+    animation: slideleft 1s ease-in;
+}
+
+@keyframes slideleft{
+    0%{
+        transform : translateX(-30px);
+        opacity: 0
+         
+    }
+    80%{
+        transform : translateX(10px);
+    }
+    100%{
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
