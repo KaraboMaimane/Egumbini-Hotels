@@ -7,6 +7,7 @@
 
 div{
     animation: slideleft 1s ease-in;
+    backface-visibility: hidden;
 }
 
 @keyframes slideleft{
@@ -22,4 +23,14 @@ div{
         transform: translateX(0px);
         opacity: 1;
     }
+}
+
+.jumbotron {
+    background-size: 100% 200%;
+    background: url('../../assets/4.jpg');
+    transition: background-position 1s ease-in-out;
+}
+
+.jumbotron:hover {
+    background-position: 0 -100%;
 }

@@ -19,3 +19,40 @@
 .btn:active{
     transform: translateY(5px);
 }
+
+.container{
+    animation: 1s slideleft;
+    backface-visibility: hidden;
+}
+
+.headingText{
+    animation: dropdown 1.2s;
+    backface-visibility: hidden;
+}
+
+@keyframes slideleft{
+    0%{
+        transform : translateX(-30px);
+        opacity: 0
+         
+    }
+    80%{
+        transform : translateX(10px);
+    }
+    100%{
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+
+@keyframes dropdown{
+    0%{
+        transform : translateY(-30px);
+        opacity: 0
+         
+    }
+    100%{
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}

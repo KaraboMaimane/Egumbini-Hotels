@@ -8,9 +8,11 @@
         <th>#</th>
         <th>Name</th>
         <th>Surname</th>
+        <th>Suite Name: </th>
+        <th>Suite Price</th>
         <th>Date From: </th>
         <th>Date To:</th>
-        <th>Tenants:</th>
+        <th>Additional Tenants:</th>
         <th>Email:</th>
       </tr>
     </thead>
@@ -19,14 +21,40 @@
         <td>{{ i + 1 }}</td>
         <td>{{ booking.name }}</td>
         <td>{{ booking.surname }}</td>
+        <td>{{ booking.suiteName }}</td>
+        <td>ZAR {{ booking.suitePrice + (booking.suitePrice * booking.tenantsNo) | number:'3.2-5' }}</td>
         <td>{{ booking.bDateFrom }}</td>
         <td>{{ booking.bDateTo }}</td>
         <td>{{ booking.tenantsNo }}</td>
-        <td>{{ booking.email }}</td>
+        <td><a>{{ booking.email }}</a></td>
         <td><button class="btn btn-danger" (click)="deleteBooking(i)">Delete</button></td>
       </tr>
     </tbody>
+  </table> <br>
+  <!-- <p class="text-primary">Total bookings: {{ bookingsarray.length }} <br></p> -->
+  <div hidden class="text-primary" *ngFor="let booking of bookingsarray">
+    <p *ngIf="check(booking.suitePrice, booking.tenantsNo)"></p>
+    <p *ngIf="tenants(booking.tenantsNo, bookingsarray.length)"></p>
+  </div>
+  <!-- <p class="text-primary">Total bookings amount : ZAR {{ sum | number:'3.2-5'}}</p> -->
+
+  <table class="table table-inverse">
+    <thead class="text-center">
+      <th>Total Bookings:</th>
+      <th>Total Amount In Bookings:</th>
+      <th>Total Tenants: </th>
+    </thead>
+    <tbody>
+      <td>{{ bookingsarray.length }}</td>
+      <td>{{ sum | number: '3.2-5' }}</td>
+      <td>{{ tenantsTotal }}</td>
+    </tbody>
   </table>
-  
-  <div *ngIf="">Nothing in here</div>
+
+  <div *ngIf="bookingsarray.length == 0"><h1 class="text-center text-muted">Its lonely in here, make a booking or two... or three</h1><br>
+    <a routerLink="/suites" class="btn btn-primary center-block"><span class="glyphicon glyphicon-arrow"></span>Back To Bookings Page</a></div>
+  <div *ngIf="bookingsarray.length > 0">
+    <label for="">Go back to suites: </label> <a routerLink="/suites" class="btn btn-primary"><span class="glyphicon glyphicon-arrow"></span>Back</a>
+  </div>
+   <br> <br> <br>
 </div>

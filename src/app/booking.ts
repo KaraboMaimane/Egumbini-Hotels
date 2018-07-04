@@ -1,15 +1,15 @@
 export class Booking{
     suiteName;
-    suitePrice;
+    suitePrice: number;
     name;
     surname;
     idNo; 
     bDateFrom;
     bDateTo;
-    tenantsNo;
+    tenantsNo: number;
     email;
 
-    constructor(name, surname, idNo, bDateFrom, bDateTo, tenantsNo, emailAddress) {
+    constructor(name, surname, idNo, bDateFrom, bDateTo, tenantsNo, emailAddress, suiteName, suitePrice){
         this.name = name;
         this.surname = surname;
         this.idNo = idNo;
@@ -17,5 +17,7 @@ export class Booking{
         this.bDateTo =  bDateTo;
         this.tenantsNo = tenantsNo;
         this.email = emailAddress;
+        this.suiteName = suiteName;
+        this.suitePrice = suitePrice;
     }
 }
